@@ -106,7 +106,6 @@ public class Main {
     public static void timing() {
 
         float min_time_next_event = 1.0e+29F;
-        System.out.println(min_time_next_event);
         next_event_type = 0;
 
         for (int i = 1; i <= num_events; ++i) {
@@ -119,13 +118,6 @@ public class Main {
             if (time_next_event[i] < min_time_next_event) {
                 min_time_next_event = time_next_event[i];
                 next_event_type = i;
-
-                if(next_event_type==1){
-                    System.out.println("Arrival : " + min_time_next_event);
-
-                }else {
-                    System.out.println("Depature : "+ min_time_next_event);
-                }
             }
         }
         if (next_event_type == 0) {
@@ -136,6 +128,12 @@ public class Main {
 //        Event list is not empty, simulation clock is advanced
         sim_time = min_time_next_event;
     }
+
+    /**
+     * This expression generates a random number from an exponential distribution
+     * @param mean
+     * @return
+     */
 
     public static float expon(float mean) {
         return (float) (-mean * Math.log(Math.random()));
